@@ -22,7 +22,7 @@ docs/       Flujo de trabajo en Git
 3. Backend:
    ```
    cd backend
-   cp .env.example .env      # editar DATABASE_URL y JWT_SECRET
+   cp .env.example .env      # editar DATABASE_URL, JWT_SECRET y ADMIN_PASSWORD
    npm install
    npm run seed              # crea el usuario Administrador inicial
    npm run dev               # http://localhost:4000
@@ -34,6 +34,24 @@ docs/       Flujo de trabajo en Git
    npm install
    npm run dev               # http://localhost:3000
    ```
+
+## API del backend
+
+Todas las rutas usan el prefijo `/api`. Solo `POST /api/auth/login` es pública; el resto requiere
+`Authorization: Bearer <token>`. Los endpoints `/api/usuarios` y `/api/usuarios/roles` requieren
+el rol Administrador.
+
+- `POST /api/auth/login`: iniciar sesión con `email` y `password`.
+- `/api/contactos`: `GET` lista y permite buscar con `?q=` o filtrar con `?favoritos=true`;
+  `POST` crea; `GET /:id`, `PUT /:id` y `DELETE /:id` consultan, modifican y eliminan.
+- `PATCH /api/contactos/:id/favorito`: alterna el estado de favorito.
+- `/api/usuarios`: `GET` lista; `POST` crea un usuario; `PUT /:id` actualiza sus datos, rol o
+  estado; `DELETE /:id` lo da de baja sin borrar sus contactos.
+- `GET /api/usuarios/roles`: consulta los roles disponibles para asignación.
+
+La API toma la identidad del usuario autenticado, no de los datos enviados por el cliente, y filtra
+los contactos por propietario. Configure `DATABASE_URL`, un `JWT_SECRET` propio y `FRONTEND_URL`
+en `backend/.env` antes de iniciar.
 
 ## Reglas del equipo
 - Todo el trabajo va en la rama `dev` (ver `docs/FLUJO_GIT.md`).
