@@ -39,9 +39,7 @@ docs/       Flujo de trabajo en Git
 - Todo el trabajo va en la rama `dev` (ver `docs/FLUJO_GIT.md`).
 - Nunca subir `.env` (ya está en `.gitignore`).
 
-## Equipo
-| Integrante | Responsabilidad |
-|---|---|
-| | |
-| | |
-| | |
+## Equipo N° 5
+Alejandro Nicólas Gómez
+Valeria Antoinette Panameño
+Michelle Abigail Guardado
