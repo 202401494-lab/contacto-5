@@ -1,0 +1,29 @@
+.form { max-width: 760px; padding: 27px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); box-shadow: 0 8px 25px rgba(58, 45, 31, .035); }
+.formIntro { display: flex; align-items: center; gap: 13px; padding-bottom: 22px; border-bottom: 1px solid #f0ece5; }
+.formIcon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 13px; color: var(--terracotta); background: var(--terracotta-soft); }
+.formIntro h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: 500; }
+.formIntro p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 17px 14px; padding-top: 23px; }
+.field { display: flex; min-width: 0; flex-direction: column; gap: 7px; color: #57564d; font-size: 11px; font-weight: 650; }
+.field b { color: var(--terracotta); }
+.field input, .field select { width: 100%; height: 43px; padding: 0 12px; border: 1px solid var(--line); border-radius: 9px; outline: 0; color: var(--ink); background: #fffefa; font-size: 12px; font-weight: 400; transition: border-color 150ms ease, box-shadow 150ms ease; }
+.field input:focus, .field select:focus { border-color: #d7a18a; box-shadow: 0 0 0 3px rgba(182, 95, 67, .08); }
+.field input::placeholder { color: #aaa59b; }
+.field select { cursor: pointer; }
+.wide { grid-column: 1 / -1; }
+.requiredNote { margin: 18px 0 0; color: #938f85; font-size: 10px; }
+.actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 23px; padding-top: 18px; border-top: 1px solid #f0ece5; }
+.actions button { min-height: 41px; padding: 0 16px; border-radius: 9px; font-size: 11px; font-weight: 650; cursor: pointer; transition: background 150ms ease, transform 150ms ease; }
+.cancel { border: 1px solid var(--line); color: #68665d; background: var(--surface); }
+.cancel:hover { background: #f7f4ee; }
+.submit { border: 1px solid var(--terracotta); color: white; background: var(--terracotta); }
+.submit:hover:not(:disabled) { transform: translateY(-1px); background: var(--terracotta-dark); }
+.submit:disabled { opacity: .65; cursor: wait; }
+.error { margin-top: 18px; padding: 11px 13px; border: 1px solid #efd0c9; border-radius: 9px; color: var(--danger); background: #fff5f2; font-size: 11px; }
+
+@media (max-width: 520px) {
+  .form { padding: 19px 16px; }
+  .fields { grid-template-columns: 1fr; gap: 14px; }
+  .wide { grid-column: auto; }
+  .actions button { flex: 1; padding: 0 10px; }
+}
